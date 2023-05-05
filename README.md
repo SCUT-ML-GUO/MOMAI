@@ -8,14 +8,14 @@ The directory structure of the whole project is as follows:
 .
 ├── data
 │   ├──conf
-│   │       ├── Attention-UNet.csv
-│   │       ├── nnUNet.csv
-│   │       ├── Swin-UNet.csv
-│   │       └── ...
+│   │   ├── Attention-UNet.csv
+│   │   ├── nnUNet.csv
+│   │   ├── Swin-UNet.csv
+│   │   └── ...
 │   ├──dice
-│   │       └── ...
+│   │   └── ...
 │   └──HD
-│           └── ...
+│       └── ...
 ├── MIMO.py         
 └── README.md
 ```
