@@ -1,6 +1,6 @@
-# MIMO
+# MOMAI
 
-This code snippet corresponds to the method proposed in "Evaluation of Multi-indicator And Multi-organ Medical Image Segmentation Models"
+This code snippet corresponds to the method proposed in "Evaluation of Multi Accuracy Index And Multi-organ Medical Image Segmentation Models"
 
 
 The directory structure of the whole project is as follows:
@@ -16,7 +16,7 @@ The directory structure of the whole project is as follows:
 │   │   └── ...
 │   └──HD
 │       └── ...
-├── MIMO.py         
+├── MOMAI.py         
 └── README.md
 ```
 
