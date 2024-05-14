@@ -30,3 +30,6 @@ AMOS 2022: https://amos22.grand-challenge.org/
 Transunet: https://github.com/Beckschen/TransUNet  
 Swin-unet: https://github.com/HuCaoFighting/Swin-Unet  
 U-Net, V-Net, Attention unet, UNETR, SwinUNETR: https://github.com/Project-MONAI/research-contributions
+
+# Others
+Usable Region Estimate for Assessing Practical Usability of Medical Image Segmentation Models (URE): https://github.com/yizhezhang2000/ure
