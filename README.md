@@ -23,10 +23,10 @@ The directory structure of the whole project is as follows:
 Comments and questions are welcome! 
 
 # Data Availability
-BTCV 2015: https://www.synapse.org/#!Synapse:syn3193805/wiki/217789 \n
+BTCV 2015: https://www.synapse.org/#!Synapse:syn3193805/wiki/217789  
 AMOS 2022: https://amos22.grand-challenge.org/
 
 # Model Availability
-Transunet: https://github.com/Beckschen/TransUNet
-Swin-unet: https://github.com/HuCaoFighting/Swin-Unet
+Transunet: https://github.com/Beckschen/TransUNet  
+Swin-unet: https://github.com/HuCaoFighting/Swin-Unet  
 U-Net, V-Net, Attention unet, UNETR, SwinUNETR: https://github.com/Project-MONAI/research-contributions
