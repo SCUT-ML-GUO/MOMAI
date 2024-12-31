@@ -6,41 +6,33 @@ import pandas as pd
 import os
 
 
-def data_reading(dst_path, num_1, num_2, num_3):
-    """
-    This function is used for reading and loading data from CSV files located in a given destination path
+def read_excel(folder_path):
+    dice_list = []
+    HD_list = []
+    conf_list = []
     
-        Args:
-            dst_path (str): path of data.
-            num_1 (int): number of models.
-            num_2 (int): number of samples.
-            num_3 (int): number of organs.
-    """
-
-    # Creating three numpy arrays with zeros, with the shape of num_1, num_2, num_3
-    # and the data type of float. These arrays will be used to store the data from CSV files.
-    conf = np.zeros(shape=(num_1,num_2,num_3), dtype = float);  
-    dice = np.zeros_like(conf); 
-    HD_dis = np.zeros_like(conf); 
-
-    folders = os.listdir(dst_path)
-    # Creating a new path by joining the sub folder name to the destination path
-    for sub_folder in folders:
-        temp_pth = os.path.join(dst_path, sub_folder)
-        temp_folders = os.listdir(temp_pth) 
-        # Iterating over each sub folder
-        for i, sub_folders in enumerate(temp_folders):
-            # Reading the CSV file located in the sub folder and storing it in a pandas dataframe
-            df = pd.read_csv(os.path.join(temp_pth, sub_folders))
-            # Checking the name of the sub folder and storing the data from the CSV file in the corresponding numpy array
-            if sub_folder == "conf":
-                conf[i] = df.values
-            elif sub_folder == "dice":
-                dice[i] = df.values
+    for filename in os.listdir(folder_path):
+        if filename.endswith('.xlsx'):
+            file_path = os.path.join(folder_path, filename)
+            print(f'Reading {file_path}...')
+            
+            xls = pd.ExcelFile(file_path)
+            df = xls.parse(xls.sheet_names[0],dtypes=float)
+            
+            if len(xls.sheet_names) >= 3:
+                dice_tmp = xls.parse(xls.sheet_names[0]).to_numpy()
+                HD_tmp = xls.parse(xls.sheet_names[1]).to_numpy()
+                conf_tmp = xls.parse(xls.sheet_names[2]).to_numpy()
+                
+                dice_list.append(dice_tmp)
+                HD_list.append(HD_tmp)
+                conf_list.append(conf_tmp)
             else:
-                HD_dis[i] = df.values
-    print("The data are loading successfully!")
-    return conf, dice, HD_dis
+                print(f'File {filename} does not have enough sheets.')
+    dice = np.array(dice_list) if dice_list else np.array([])
+    HD = np.array(HD_list) if HD_list else np.array([])
+    conf = np.array(conf_list) if conf_list else np.array([])
+    return dice,HD,conf
 
 def get_percentile(statistics, percentile):
     # Sorts the statistics list in ascending order and assigns it to the 'ordered' variable
@@ -174,12 +166,11 @@ if __name__ == '__main__':
               9:"portal and splenic veins",          10:"pancreas",
               11:"right adrenal gland",              12:"left adrenal gland"}
 #The information of model
-    model ={ 0:"Attention-Unet",   1:"nnUNet",   2:"Swin-Unet",
-             3:"SwinUNETR",        4:"TransUnet",     5:"Unet",
-             6:"UNETR",            7:"V-Net"} 
+    model ={ 0:"Attention-Unet",   1:"nnUNet",   2:"SwinUNETR",
+             3:"Unet",        4:"UNETR",     5:"V-Net"} 
 
 # data preparing
-    conf,Dice,HD_dis = data_reading(path, model_Num, sample_Num, organ_Num+1)
+    Dice,HD_dis,conf = read_excel(path)
     Dice_threshold, HD_threshold = threshold(Dice,HD_dis,organ_Num)
     
 # data calculating
