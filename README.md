@@ -9,8 +9,11 @@ Comments and questions are welcome!
 
 # Data Availability
 BTCV 2015: https://www.synapse.org/#!Synapse:syn3193805/wiki/217789
+
 LiTS 2017：https://competitions.codalab.org/competitions/17094
+
 AMOS 2022: https://amos22.grand-challenge.org/
+
 FLARE 2022：https://flare22.grand-challenge.org/
 
 # Model Availability
