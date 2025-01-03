@@ -2,7 +2,7 @@
 
 This code snippet corresponds to the method proposed in "A Unified Medical Image Segmentation Evaluation Method Combining Multi-Metrics and Confidence".
 
-
+![Image](https://github.com/user-attachments/assets/31462282-3d92-4d71-b7b4-6a917630d90d)
 
 
 Comments and questions are welcome! 
